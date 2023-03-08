@@ -173,7 +173,8 @@ body{
 }
 
 section{
-    height: 100vh;
+    position: relative;
+    min-height: 100vh;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -237,6 +238,9 @@ section{
 
 
 .scroll-area{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -287,12 +291,6 @@ section{
 .skill-title span{
     font-size: 2rem;
     font-weight: bold;
-    /* border: 1px solid red; */
-}
-
-.skill-title:hover{
-    color: var(--neon-orange);
-    transform: translateY(-10px);
 }
 
 .skill-item{
@@ -300,6 +298,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: start;
+    gap: .5rem
 }
 
 .skill-level-bar{
@@ -309,7 +308,6 @@ section{
     background-color: var(--dark-gray);
     position: relative;
     overflow: hidden;
-    margin: 0 0.5rem;
 }
 
 .skill-level-bar::after{
@@ -317,7 +315,7 @@ section{
     height: 100%;
     width: 0;
     border-radius: 4px;
-    background-color: #FF5F1F;
+    background-color: var(--neon-orange);
     position: absolute;
     top: 0;
     transition: all .8s ease;
@@ -340,10 +338,22 @@ section{
     height: 64px;
 }
 
+.skill-item i{
+    font-size: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--neon-orange);
+}
+
 .fade-top{
     opacity: 0;
     transform: translateY(-10px);
-    transition: all .8s ease;
+    transition: 
+        opacity .8s ease,
+        transform .8s ease;
 }
 
 .fade-top.active{
@@ -354,7 +364,9 @@ section{
 .fade-left{
     opacity: 0;
     transform: translateX(-10px);
-    transition: all .8s ease;
+    transition: 
+        opacity .8s ease,
+        transform .8s ease;
 }
 
 .fade-left.active{
@@ -365,7 +377,9 @@ section{
 .fade-right{
     opacity: 0;
     transform: translateX(10px);
-    transition: all .8s ease;
+    transition: 
+        opacity .8s ease,
+        transform .8s ease;
 }
 
 .fade-right.active{
@@ -376,7 +390,9 @@ section{
 .fade-bottom{
     opacity: 0;
     transform: translateY(10px);
-    transition: all .8s ease;
+    transition: 
+        opacity .8s ease,
+        transform .8s ease;
 }
 
 .fade-bottom.active{
@@ -434,6 +450,7 @@ section{
         grid-template-columns: 1fr 1fr 1fr;
         margin: 0 auto;
         column-gap: 1rem;
+        row-gap: .5rem;
     }
     
     .skill-title span{
@@ -445,7 +462,7 @@ section{
     #skills .sectioc-grid-con{
         grid-template-columns: 1fr 1fr;
         margin: 0 auto;
-        column-gap: 1rem;
+        gap: 1rem;
     }
 }
 
@@ -459,7 +476,7 @@ section{
     #skills .sectioc-grid-con{
         grid-template-columns: 1fr;
         margin: 0 auto;
-        column-gap: 1rem;
+        gap: 1rem;
     }
 
     .skill-level-bar{
